@@ -1,0 +1,27 @@
+ 1. Install packages using pacman (for example to install libglib2.0-dev: "sudo pacman -S glib2")
+    g++
+    make
+    libgmp-dev
+    libglib2.0-dev
+    libssl-dev
+2. In terminal open directory when you want to clone repository. Then terminate: "git clone --recursive https://github.com/bluetrickpt/PSI"
+
+3. run "cd PSI"
+
+4. Righ now you can try to run command "make". If it will end without errors that great - you are done. However In this step I had two problems to solve:
+
+4a: if you have some error about Mircale:
+   -go to miracle directory: "cd src/externals/Miracl"
+   -terminate: "git clone git@github.com:miracl/MIRACL.git"
+   -go back " cd ../../../"
+   -try to terminate "make" again
+
+4b: if you get:
+error:/usr/include/glib-2.0/glib/gtypes.h:34:10: fatal error: glibconfig.h: No such file or directory
+    -make sure that you installed the package: "sudo pacman -S glib2"
+    -important: terminate "sudo pacman -S pkg-config"
+        (pkg-config is device to manage references in project)
+    - try to terminate"make" again
+
+
+5: check if installed properly: "make test"
